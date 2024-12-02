@@ -1,4 +1,5 @@
 import io
+import requests
 import numpy as np
 from PIL import Image, ImageSequence, ImageOps
 
@@ -6,12 +7,13 @@ from PIL import Image, ImageSequence, ImageOps
 class SaveImageToS3:
     @classmethod
     def INPUT_TYPES(s):
-        return {"required": { 
+        return {
+            "required": { 
                 "images": ("IMAGE",),
                 "presigned_url":  ("STRING", {"multiline": False, "default": ""}),
-                },
-                "hidden": {
-                }}
+            },
+            "hidden": {}
+        }
     RETURN_TYPES = ()
     FUNCTION = "save_image_to_presignurl"
     CATEGORY = "image"
