@@ -27,3 +27,12 @@ class SaveImageToS3:
 
         print(response.status_code)
         
+
+
+NODE_CLASS_MAPPINGS = {
+    "SaveImageToS3": SaveImageToS3,
+}
+
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "SaveImageToS3": "Save image to s3 presignUrl",
+}
