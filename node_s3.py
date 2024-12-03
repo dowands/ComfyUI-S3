@@ -25,9 +25,11 @@ class SaveImageToS3:
         img = Image.fromarray(np.clip(i, 0, 255).astype(np.uint8))
         img_byte_arr = io.BytesIO()
         img.save(img_byte_arr, format='PNG')
+        img_byte_arr.seek(0)
         response = requests.put(presigned_url, data=img_byte_arr)
 
         print(response.status_code)
+        return images
         
 
 
