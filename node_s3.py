@@ -14,7 +14,8 @@ class SaveImageToS3:
             },
             "hidden": {}
         }
-    RETURN_TYPES = ()
+    RETURN_TYPES = ("IMAGE", )
+    RETURN_NAMES = ("images", )
     FUNCTION = "save_image_to_presignurl"
     CATEGORY = "image"
     OUTPUT_NODE = True
@@ -29,7 +30,7 @@ class SaveImageToS3:
         response = requests.put(presigned_url, data=img_byte_arr)
 
         print(response.status_code)
-        return images
+        return ( images, )
         
 
 
